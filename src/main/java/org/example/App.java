@@ -9,7 +9,7 @@ public class App {
         props.setProperty("user", "postgres");
         props.setProperty("password", "123");
 
-        try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/final_certification", props)) {
+        try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", props)) {
             // 1. Вставка нового товара (Create)
             insertNewProduct(conn, "Телевизор", 50000, 15, "Электроника");
 
