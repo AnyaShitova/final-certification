@@ -6,7 +6,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseAssistantManager">
@@ -24,7 +24,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f77b5ab7-799a-4e4b-981c-06020ffcdddc">
-      <console name="Изменение" type="STANDARD" schema="postgres" session="Main"><![CDATA[-- Запросы на изменение
+      <console name="Изменение" type="STANDARD" schema="public" session="Main"><![CDATA[-- Запросы на изменение
 
 -- 6. Обновление количества на складе при покупке (например, после оформления заказа)
 UPDATE product
@@ -40,7 +40,7 @@ WHERE order_date <= CURRENT_DATE - INTERVAL '7 days';
 UPDATE product
 SET price = price * 1.10
 WHERE category = 'Электроника';]]></console>
-      <console name="Удаление" type="STANDARD" schema="postgres" session="Main"><![CDATA[-- Запросы на удаление
+      <console name="Удаление" type="STANDARD" schema="public" session="Main"><![CDATA[-- Запросы на удаление
 
 -- 9. Удаление клиентов без заказов
 DELETE FROM customer
@@ -49,7 +49,7 @@ WHERE id NOT IN (SELECT customer_id FROM "order");
 -- 10. Удаление товаров с нулевым количеством на складе
 DELETE FROM product
 WHERE quantity = 0;]]></console>
-      <console name="Чтение" type="STANDARD" schema="postgres" session="Main"><![CDATA[-- Запросы на чтение
+      <console name="Чтение" type="STANDARD" schema="public" session="Main"><![CDATA[-- Запросы на чтение
 
 -- 1. Список всех заказов в диапазоне дат с именем покупателя и описанием товара
 SELECT o.order_date, c.first_name, c.last_name, p.description
@@ -102,6 +102,8 @@ WHERE os.status_name = 'Оплачен';]]></console>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="f77b5ab7-799a-4e4b-981c-06020ffcdddc" dataset="pg_catalog.pg_attrdef" active-filter-id="" />
+    <filter-actions connection-id="f77b5ab7-799a-4e4b-981c-06020ffcdddc" dataset="public.customer" active-filter-id="" />
+    <filter-actions connection-id="f77b5ab7-799a-4e4b-981c-06020ffcdddc" dataset="public.order" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -109,6 +111,9 @@ WHERE os.status_name = 'Оплачен';]]></console>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
