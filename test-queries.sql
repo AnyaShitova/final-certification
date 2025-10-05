@@ -1,11 +1,11 @@
 -- Запросы на чтение
 
--- 1. Список всех заказов за последние 7 дней с именем покупателя и описанием товара
+-- 1. Список всех заказов в диапазоне дат с именем покупателя и описанием товара
 SELECT o.order_date, c.first_name, c.last_name, p.description
 FROM "order" o
 JOIN customer c ON o.customer_id = c.id
 JOIN product p ON o.product_id = p.id
-WHERE o.order_date >= CURRENT_DATE - INTERVAL '7 days';
+WHERE o.order_date BETWEEN '2023-10-01' AND '2023-10-07';
 
 -- 2. Топ-3 самых популярных товаров (по количеству заказов)
 SELECT p.description, SUM(o.quantity) AS total_ordered
